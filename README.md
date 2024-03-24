@@ -36,8 +36,40 @@
   "userId": 111323290434354540545
 }
 ```
+```js
+JSON.parse(jsonString);
+```
+
+
 ### 前端需要*稳定*每隔`1s`向服务端请求`API`, 请问如何实现？
+
+```js
+
+import axios from "axios";
+
+const apiUrl = "demoUrl";
+
+function sendRequest() {
+  axios.get(apiUrl)
+          .then(res => {
+            console.log(res);
+          })
+          .catch(err => {
+            console.log(err);
+          });
+}
+
+setInterval(sendRequest, 1000);
+
+```
 
 ### 什么情况下，你会为你的项目引入状态管理库，比如`Redux`, `Pinia`, 可以简述一下起到了什么作用么？
 
+- 应用中的多个组件需要访问和修改同一份数据时,状态管理库可以集中管理这些状态,方便状态变化可见
+- 部分配置,登录状态保存至本地存储并在应用启动时恢复
+
 ### 为什么`ESM`与`CJS`不能兼容？
+
+他们是js中两种不同的模块化标准，设计理念和实现机制有所不同，导致直接兼容上存在差异  
+- CJS使用`require`来导入模块，并通过`module.exports`或`exports`对象来导出模块内容
+- CJS是同步加载模块`require`调用时,立即返回模块内容,ESM则是异步加载,import语句在顶层是静态的,只有在编译时加载

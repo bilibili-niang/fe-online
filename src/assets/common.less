@@ -1,0 +1,77 @@
+@import "variables";
+
+// 通用
+.ice-column{
+  display: flex;
+  flex-direction: column;
+}
+.ice-row{
+  display: flex;
+  flex-direction: row;
+}
+.wPercent(@value:20%){
+  width: @value;
+}
+
+.flexAuto{
+  flex: 1;
+}
+
+// 非通用
+.itemContainer{
+  background: @bac;
+}
+.itemCommon{
+  transition-duration: @time-n;
+  display: flex;
+  flex-direction: row;
+  box-sizing: border-box;
+  color: @fontColor;
+  border-radius: @radio-s;
+  user-select: none;
+
+  &:hover{
+    color: @fontHoverColor;
+    cursor: pointer;
+    border-color: @fontHoverColor;
+  }
+}
+.item{
+  .itemCommon();
+  font-size: @fontSize-l;
+  margin: @m-normal @m-small;
+  padding: @p-normal @p-normal @p-large;
+  border: 1px solid @fontColor;
+}
+
+.item-s{
+  .itemCommon();
+  margin: @m-small @m-small @m-small 2rem;
+  font-size: @fontSize-n;
+  padding-left: @p-large;
+  border-bottom: 1px solid @fontColor;
+}
+.ice-text{
+  font-size: @fontSize-n;
+  margin: @m-small;
+  padding: @p-normal;
+  color: @fontColor;
+  align-items: center;
+  display: flex;
+
+  &:hover{
+    color: @fontHoverColor;
+  }
+}
+
+#app{
+  margin: 0 auto;
+  max-width: 70vw;
+}
+.ice-header{
+  color: @fontColor;
+  font-size: @fontSize-l-su;
+  border-left: @fontColor .7rem solid;
+  padding-left: .7rem;
+  user-select: none;
+}
